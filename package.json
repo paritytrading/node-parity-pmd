@@ -1,0 +1,17 @@
+{
+  "name": "parity-pmd",
+  "version": "0.1.0",
+  "author": "Jussi Virtanen",
+  "license": "Apache-2.0",
+  "repository": "jvirtanen/node-parity-pmd",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "long": "^2.2.3"
+  },
+  "devDependencies": {
+    "chai": "^2.1.0",
+    "mocha": "^2.2.5"
+  }
+}
