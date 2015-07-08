@@ -121,6 +121,30 @@ describe('PMD', function () {
 
       assert.throws(function () { PMD.format(message) }, 'Unknown message type: ?');
     });
+
+    it('handles too long string', function () {
+      var formatted = [
+        0x41,
+        0x00, 0x00, 0x00, 0x01,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02,
+        0x42,
+        0x46, 0x4F, 0x4F, 0x20, 0x42, 0x41, 0x52, 0x20,
+        0x00, 0x00, 0x00, 0x03,
+        0x00, 0x00, 0x00, 0x04
+      ];
+
+      var parsed = {
+        messageType: 'A',
+        timestamp: 1,
+        orderNumber: new Long(2, 0, true),
+        side: 'B',
+        instrument: 'FOO BAR BAZ',
+        quantity: 3,
+        price: 4
+      }
+
+      assert.deepEqual(PMD.format(parsed), new Buffer(formatted));
+    });
   });
 
   describe('#parse()', function () {
