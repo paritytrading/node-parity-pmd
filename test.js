@@ -112,7 +112,7 @@ describe('PMD', function () {
   describe('#format()', function () {
     messages.forEach((message) => {
       it('handles ' + message.name + ' message', function () {
-        assert.deepEqual(PMD.format(message.parsed), new Buffer(message.formatted));
+        assert.deepEqual(PMD.format(message.parsed), Buffer.from(message.formatted));
       });
     });
 
@@ -145,19 +145,19 @@ describe('PMD', function () {
         price: 4
       }
 
-      assert.deepEqual(PMD.format(parsed), new Buffer(formatted));
+      assert.deepEqual(PMD.format(parsed), Buffer.from(formatted));
     });
   });
 
   describe('#parse()', function () {
     messages.forEach((message) => {
       it('handles ' + message.name + ' message', function () {
-        assert.deepEqual(PMD.parse(new Buffer(message.formatted)), message.parsed);
+        assert.deepEqual(PMD.parse(Buffer.from(message.formatted)), message.parsed);
       });
     });
 
     it('handles unknown message type', function () {
-      const buffer = new Buffer([ 0x3F ]);
+      const buffer = Buffer.from([ 0x3F ]);
 
       assert.throws(() => { PMD.parse(buffer) }, 'Unknown message type: 63');
     });
