@@ -4,22 +4,22 @@ const Long = require('long');
 
 exports.format = (message) => {
   switch (message.messageType) {
-  case 'V':
-    return formatVersion(message);
-  case 'S':
-    return formatSeconds(message);
-  case 'A':
-    return formatOrderAdded(message);
-  case 'E':
-    return formatOrderExecuted(message);
-  case 'X':
-    return formatOrderCanceled(message);
-  case 'D':
-    return formatOrderDeleted(message);
-  case 'B':
-    return formatBrokenTrade(message);
-  default:
-    throw new Error('Unknown message type: ' + message.messageType);
+    case 'V':
+      return formatVersion(message);
+    case 'S':
+      return formatSeconds(message);
+    case 'A':
+      return formatOrderAdded(message);
+    case 'E':
+      return formatOrderExecuted(message);
+    case 'X':
+      return formatOrderCanceled(message);
+    case 'D':
+      return formatOrderDeleted(message);
+    case 'B':
+      return formatBrokenTrade(message);
+    default:
+      throw new Error('Unknown message type: ' + message.messageType);
   }
 }
 
@@ -27,22 +27,22 @@ exports.parse = (buffer) => {
   const messageType = buffer.readUInt8();
 
   switch (messageType) {
-  case 0x56:
-    return parseVersion(buffer);
-  case 0x53:
-    return parseSeconds(buffer);
-  case 0x41:
-    return parseOrderAdded(buffer);
-  case 0x45:
-    return parseOrderExecuted(buffer);
-  case 0x58:
-    return parseOrderCanceled(buffer);
-  case 0x44:
-    return parseOrderDeleted(buffer);
-  case 0x42:
-    return parseBrokenTrade(buffer);
-  default:
-    throw new Error('Unknown message type: ' + messageType);
+    case 0x56:
+      return parseVersion(buffer);
+    case 0x53:
+      return parseSeconds(buffer);
+    case 0x41:
+      return parseOrderAdded(buffer);
+    case 0x45:
+      return parseOrderExecuted(buffer);
+    case 0x58:
+      return parseOrderCanceled(buffer);
+    case 0x44:
+      return parseOrderDeleted(buffer);
+    case 0x42:
+      return parseBrokenTrade(buffer);
+    default:
+      throw new Error('Unknown message type: ' + messageType);
   }
 }
 
