@@ -1,3 +1,5 @@
+'use strict';
+
 var Long   = require('long');
 var PMD    = require('./');
 var assert = require('assert');

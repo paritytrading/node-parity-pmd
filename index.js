@@ -1,3 +1,5 @@
+'use strict';
+
 var Long = require('long');
 
 exports.format = function (message) {
