@@ -17,5 +17,6 @@ Download Parity PMD:
 License
 -------
 
-Parity PMD is released under the Apache License, Version 2.0. See `LICENSE`
-for details.
+Copyright 2015 Jussi Virtanen.
+
+Released under the Apache License, Version 2.0. See `LICENSE.txt` for details.
