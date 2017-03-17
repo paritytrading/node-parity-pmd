@@ -8,7 +8,9 @@ Parity PMD implements [Parity][]'s native market data protocol on Node.
 
 Download Parity PMD:
 
-    npm install parity-pmd
+```
+npm install parity-pmd
+```
 
 ## License
 
