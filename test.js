@@ -110,7 +110,7 @@ describe('PMD', function () {
   ];
 
   describe('#format()', function () {
-    messages.forEach(function (message) {
+    messages.forEach((message) => {
       it('handles ' + message.name + ' message', function () {
         assert.deepEqual(PMD.format(message.parsed), new Buffer(message.formatted));
       });
@@ -121,7 +121,7 @@ describe('PMD', function () {
         messageType: '?'
       };
 
-      assert.throws(function () { PMD.format(message) }, 'Unknown message type: ?');
+      assert.throws(() => { PMD.format(message) }, 'Unknown message type: ?');
     });
 
     it('handles too long string', function () {
@@ -150,7 +150,7 @@ describe('PMD', function () {
   });
 
   describe('#parse()', function () {
-    messages.forEach(function (message) {
+    messages.forEach((message) => {
       it('handles ' + message.name + ' message', function () {
         assert.deepEqual(PMD.parse(new Buffer(message.formatted)), message.parsed);
       });
@@ -159,7 +159,7 @@ describe('PMD', function () {
     it('handles unknown message type', function () {
       const buffer = new Buffer([ 0x3F ]);
 
-      assert.throws(function () { PMD.parse(buffer) }, 'Unknown message type: 63');
+      assert.throws(() => { PMD.parse(buffer) }, 'Unknown message type: 63');
     });
   });
 });

@@ -2,7 +2,7 @@
 
 const Long = require('long');
 
-exports.format = function (message) {
+exports.format = (message) => {
   switch (message.messageType) {
   case 'V':
     return formatVersion(message);
@@ -23,7 +23,7 @@ exports.format = function (message) {
   }
 }
 
-exports.parse = function (buffer) {
+exports.parse = (buffer) => {
   const messageType = buffer.readUInt8();
 
   switch (messageType) {
