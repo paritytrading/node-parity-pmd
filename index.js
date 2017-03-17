@@ -47,7 +47,7 @@ exports.parse = (buffer) => {
 }
 
 function formatVersion(message) {
-  const buffer = new Buffer(5);
+  const buffer = Buffer.allocUnsafe(5);
 
   buffer.writeUInt8(0x56, 0);
   buffer.writeUInt32BE(message.version, 1);
@@ -63,7 +63,7 @@ function parseVersion(buffer) {
 }
 
 function formatSeconds(message) {
-  const buffer = new Buffer(5);
+  const buffer = Buffer.allocUnsafe(5);
 
   buffer.writeUInt8(0x53, 0);
   buffer.writeUInt32BE(message.second, 1);
@@ -79,7 +79,7 @@ function parseSeconds(buffer) {
 }
 
 function formatOrderAdded(message) {
-  const buffer = new Buffer(30);
+  const buffer = Buffer.allocUnsafe(30);
 
   buffer.writeUInt8(0x41, 0);
   buffer.writeUInt32BE(message.timestamp, 1);
@@ -105,7 +105,7 @@ function parseOrderAdded(buffer) {
 }
 
 function formatOrderExecuted(message) {
-  const buffer = new Buffer(21);
+  const buffer = Buffer.allocUnsafe(21);
 
   buffer.writeUInt8(0x45, 0);
   buffer.writeUInt32BE(message.timestamp, 1);
@@ -127,7 +127,7 @@ function parseOrderExecuted(buffer) {
 }
 
 function formatOrderCanceled(message) {
-  const buffer = new Buffer(17);
+  const buffer = Buffer.allocUnsafe(17);
 
   buffer.writeUInt8(0x58, 0);
   buffer.writeUInt32BE(message.timestamp, 1);
@@ -147,7 +147,7 @@ function parseOrderCanceled(buffer) {
 }
 
 function formatOrderDeleted(message) {
-  const buffer = new Buffer(13);
+  const buffer = Buffer.allocUnsafe(13);
 
   buffer.writeUInt8(0x44, 0);
   buffer.writeUInt32BE(message.timestamp, 1);
@@ -165,7 +165,7 @@ function parseOrderDeleted(buffer) {
 }
 
 function formatBrokenTrade(message) {
-  const buffer = new Buffer(9);
+  const buffer = Buffer.allocUnsafe(9);
 
   buffer.writeUInt8(0x42, 0);
   buffer.writeUInt32BE(message.timestamp, 1);
