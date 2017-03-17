@@ -12,6 +12,6 @@
     "long": "^3"
   },
   "devDependencies": {
-    "mocha": "^2.2.5"
+    "mocha": "^3"
   }
 }
