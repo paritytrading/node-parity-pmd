@@ -1,6 +1,6 @@
 var Long   = require('long');
 var PMD    = require('./');
-var assert = require('chai').assert;
+var assert = require('assert');
 
 describe('PMD', function () {
   var messages = [
