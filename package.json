@@ -9,7 +9,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "long": "^2.2.3"
+    "long": "^3"
   },
   "devDependencies": {
     "mocha": "^2.2.5"
