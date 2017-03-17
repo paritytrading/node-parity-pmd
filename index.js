@@ -1,6 +1,6 @@
 'use strict';
 
-var Long = require('long');
+const Long = require('long');
 
 exports.format = function (message) {
   switch (message.messageType) {
@@ -24,7 +24,7 @@ exports.format = function (message) {
 }
 
 exports.parse = function (buffer) {
-  var messageType = buffer.readUInt8();
+  const messageType = buffer.readUInt8();
 
   switch (messageType) {
   case 0x56:
@@ -47,7 +47,7 @@ exports.parse = function (buffer) {
 }
 
 function formatVersion(message) {
-  var buffer = new Buffer(5);
+  const buffer = new Buffer(5);
 
   buffer.writeUInt8(0x56, 0);
   buffer.writeUInt32BE(message.version, 1);
@@ -63,7 +63,7 @@ function parseVersion(buffer) {
 }
 
 function formatSeconds(message) {
-  var buffer = new Buffer(5);
+  const buffer = new Buffer(5);
 
   buffer.writeUInt8(0x53, 0);
   buffer.writeUInt32BE(message.second, 1);
@@ -79,7 +79,7 @@ function parseSeconds(buffer) {
 }
 
 function formatOrderAdded(message) {
-  var buffer = new Buffer(30);
+  const buffer = new Buffer(30);
 
   buffer.writeUInt8(0x41, 0);
   buffer.writeUInt32BE(message.timestamp, 1);
@@ -105,7 +105,7 @@ function parseOrderAdded(buffer) {
 }
 
 function formatOrderExecuted(message) {
-  var buffer = new Buffer(21);
+  const buffer = new Buffer(21);
 
   buffer.writeUInt8(0x45, 0);
   buffer.writeUInt32BE(message.timestamp, 1);
@@ -127,7 +127,7 @@ function parseOrderExecuted(buffer) {
 }
 
 function formatOrderCanceled(message) {
-  var buffer = new Buffer(17);
+  const buffer = new Buffer(17);
 
   buffer.writeUInt8(0x58, 0);
   buffer.writeUInt32BE(message.timestamp, 1);
@@ -147,7 +147,7 @@ function parseOrderCanceled(buffer) {
 }
 
 function formatOrderDeleted(message) {
-  var buffer = new Buffer(13);
+  const buffer = new Buffer(13);
 
   buffer.writeUInt8(0x44, 0);
   buffer.writeUInt32BE(message.timestamp, 1);
@@ -165,7 +165,7 @@ function parseOrderDeleted(buffer) {
 }
 
 function formatBrokenTrade(message) {
-  var buffer = new Buffer(9);
+  const buffer = new Buffer(9);
 
   buffer.writeUInt8(0x42, 0);
   buffer.writeUInt32BE(message.timestamp, 1);
@@ -188,14 +188,14 @@ function writeUInt64BE(buffer, value, offset) {
 }
 
 function readUInt64BE(buffer, offset) {
-  var high = buffer.readUInt32BE(offset);
-  var low  = buffer.readUInt32BE(offset + 4);
+  const high = buffer.readUInt32BE(offset);
+  const low  = buffer.readUInt32BE(offset + 4);
 
   return new Long(low, high, true);
 }
 
 function writeString(buffer, value, offset, length) {
-  var count = buffer.write(value, offset, length, 'ascii');
+  const count = buffer.write(value, offset, length, 'ascii');
 
   buffer.fill(0x20, count, length);
 }

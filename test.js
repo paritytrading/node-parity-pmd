@@ -1,11 +1,11 @@
 'use strict';
 
-var Long   = require('long');
-var PMD    = require('./');
-var assert = require('assert');
+const Long   = require('long');
+const PMD    = require('./');
+const assert = require('assert');
 
 describe('PMD', function () {
-  var messages = [
+  const messages = [
     {
       name: 'Version',
       formatted: [
@@ -117,7 +117,7 @@ describe('PMD', function () {
     });
 
     it('handles unknown message type', function () {
-      var message = {
+      const message = {
         messageType: '?'
       };
 
@@ -125,7 +125,7 @@ describe('PMD', function () {
     });
 
     it('handles too long string', function () {
-      var formatted = [
+      const formatted = [
         0x41,
         0x00, 0x00, 0x00, 0x01,
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02,
@@ -135,7 +135,7 @@ describe('PMD', function () {
         0x00, 0x00, 0x00, 0x04
       ];
 
-      var parsed = {
+      const parsed = {
         messageType: 'A',
         timestamp: 1,
         orderNumber: new Long(2, 0, true),
@@ -157,7 +157,7 @@ describe('PMD', function () {
     });
 
     it('handles unknown message type', function () {
-      var buffer = new Buffer([ 0x3F ]);
+      const buffer = new Buffer([ 0x3F ]);
 
       assert.throws(function () { PMD.parse(buffer) }, 'Unknown message type: 63');
     });
