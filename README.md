@@ -3,7 +3,7 @@ Parity PMD
 
 Parity PMD implements [Parity][]'s native market data protocol on Node.
 
-  [Parity]: https://github.com/jvirtanen/parity
+  [Parity]: https://github.com/paritytrading/parity
 
 
 Download
