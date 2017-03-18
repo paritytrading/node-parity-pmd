@@ -21,7 +21,7 @@ exports.format = (message) => {
     default:
       throw new Error('Unknown message type: ' + message.messageType);
   }
-}
+};
 
 exports.parse = (buffer) => {
   const messageType = buffer.readUInt8();
@@ -44,7 +44,7 @@ exports.parse = (buffer) => {
     default:
       throw new Error('Unknown message type: ' + messageType);
   }
-}
+};
 
 function formatVersion(message) {
   const buffer = Buffer.allocUnsafe(5);
