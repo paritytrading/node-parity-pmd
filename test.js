@@ -110,7 +110,7 @@ describe('PMD', function () {
 
   describe('#format()', function () {
     messages.forEach((message) => {
-      it('handles ' + message.name + ' message', function () {
+      it(`handles ${message.name} message`, function () {
         assert.deepEqual(PMD.format(message.parsed), Buffer.from(message.formatted));
       });
     });
@@ -150,7 +150,7 @@ describe('PMD', function () {
 
   describe('#parse()', function () {
     messages.forEach((message) => {
-      it('handles ' + message.name + ' message', function () {
+      it(`handles ${message.name} message`, function () {
         assert.deepEqual(PMD.parse(Buffer.from(message.formatted)), message.parsed);
       });
     });
