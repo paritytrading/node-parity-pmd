@@ -1,7 +1,7 @@
 'use strict';
 
-const Long   = require('long');
-const PMD    = require('./');
+const Long = require('long');
+const PMD = require('./');
 const assert = require('assert');
 
 describe('PMD', function () {
