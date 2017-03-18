@@ -24,7 +24,7 @@ exports.format = (message) => {
 };
 
 exports.parse = (buffer) => {
-  const messageType = buffer.readUInt8();
+  const messageType = buffer.readUInt8(0);
 
   switch (messageType) {
     case 0x56:
