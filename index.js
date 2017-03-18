@@ -181,12 +181,15 @@ function parseBrokenTrade(buffer) {
 }
 
 function writeUInt64BE(buffer, value, offset) {
-  buffer.writeUInt32BE(0, offset);
-  buffer.writeUInt32BE(value, offset + 4);
+  buffer.writeUInt32BE(value / 0x100000000, offset);
+  buffer.writeUInt32BE(value % 0x100000000, offset + 4);
 }
 
 function readUInt64BE(buffer, offset) {
-  return buffer.readUInt32BE(offset + 4);
+  const high = buffer.readUInt32BE(offset);
+  const low = buffer.readUInt32BE(offset + 4);
+
+  return 0x100000000 * high + low;
 }
 
 function writeString(buffer, value, offset, length) {
