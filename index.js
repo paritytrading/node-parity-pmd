@@ -1,7 +1,5 @@
 'use strict';
 
-const Long = require('long');
-
 exports.format = (message) => {
   switch (message.messageType) {
     case 'V':
@@ -183,15 +181,12 @@ function parseBrokenTrade(buffer) {
 }
 
 function writeUInt64BE(buffer, value, offset) {
-  buffer.writeUInt32BE(value.high, offset);
-  buffer.writeUInt32BE(value.low, offset + 4);
+  buffer.writeUInt32BE(0, offset);
+  buffer.writeUInt32BE(value, offset + 4);
 }
 
 function readUInt64BE(buffer, offset) {
-  const high = buffer.readUInt32BE(offset);
-  const low  = buffer.readUInt32BE(offset + 4);
-
-  return new Long(low, high, true);
+  return buffer.readUInt32BE(offset + 4);
 }
 
 function writeString(buffer, value, offset, length) {

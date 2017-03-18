@@ -8,9 +8,6 @@
   "scripts": {
     "test": "mocha"
   },
-  "dependencies": {
-    "long": "^3"
-  },
   "devDependencies": {
     "mocha": "^3"
   }

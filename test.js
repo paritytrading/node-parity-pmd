@@ -1,6 +1,5 @@
 'use strict';
 
-const Long = require('long');
 const PMD = require('./');
 const assert = require('assert');
 
@@ -42,7 +41,7 @@ describe('PMD', function () {
       parsed: {
         messageType: 'A',
         timestamp: 1,
-        orderNumber: new Long(2, 0, true),
+        orderNumber: 2,
         side: 'B',
         instrument: 'FOO     ',
         quantity: 3,
@@ -61,7 +60,7 @@ describe('PMD', function () {
       parsed: {
         messageType: 'E',
         timestamp: 1,
-        orderNumber: new Long(2, 0, true),
+        orderNumber: 2,
         quantity: 3,
         matchNumber: 4,
       }
@@ -77,7 +76,7 @@ describe('PMD', function () {
       parsed: {
         messageType: 'X',
         timestamp: 1,
-        orderNumber: new Long(2, 0, true),
+        orderNumber: 2,
         canceledQuantity: 3,
       }
     },
@@ -91,7 +90,7 @@ describe('PMD', function () {
       parsed: {
         messageType: 'D',
         timestamp: 1,
-        orderNumber: new Long(2, 0, true),
+        orderNumber: 2,
       }
     },
     {
@@ -138,7 +137,7 @@ describe('PMD', function () {
       const parsed = {
         messageType: 'A',
         timestamp: 1,
-        orderNumber: new Long(2, 0, true),
+        orderNumber: 2,
         side: 'B',
         instrument: 'FOO BAR BAZ',
         quantity: 3,
