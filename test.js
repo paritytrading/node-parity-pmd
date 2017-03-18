@@ -14,7 +14,7 @@ describe('PMD', function () {
       parsed: {
         messageType: 'V',
         version: 1,
-      }
+      },
     },
     {
       name: 'Seconds',
@@ -25,7 +25,7 @@ describe('PMD', function () {
       parsed: {
         messageType: 'S',
         second: 1,
-      }
+      },
     },
     {
       name: 'Order Added',
@@ -46,7 +46,7 @@ describe('PMD', function () {
         instrument: 'FOO     ',
         quantity: 3,
         price: 4,
-      }
+      },
     },
     {
       name: 'Order Executed',
@@ -63,7 +63,7 @@ describe('PMD', function () {
         orderNumber: 4294967298,
         quantity: 3,
         matchNumber: 4,
-      }
+      },
     },
     {
       name: 'Order Canceled',
@@ -78,7 +78,7 @@ describe('PMD', function () {
         timestamp: 1,
         orderNumber: 4294967298,
         canceledQuantity: 3,
-      }
+      },
     },
     {
       name: 'Order Deleted',
@@ -91,7 +91,7 @@ describe('PMD', function () {
         messageType: 'D',
         timestamp: 1,
         orderNumber: 4294967298,
-      }
+      },
     },
     {
       name: 'Broken Trade',
@@ -104,8 +104,8 @@ describe('PMD', function () {
         messageType: 'B',
         timestamp: 1,
         matchNumber: 2,
-      }
-    }
+      },
+    },
   ];
 
   describe('#format()', function () {
