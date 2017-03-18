@@ -10,22 +10,22 @@ describe('PMD', function () {
       name: 'Version',
       formatted: [
         0x56,
-        0x00, 0x00, 0x00, 0x01
+        0x00, 0x00, 0x00, 0x01,
       ],
       parsed: {
         messageType: 'V',
-        version: 1
+        version: 1,
       }
     },
     {
       name: 'Seconds',
       formatted: [
         0x53,
-        0x00, 0x00, 0x00, 0x01
+        0x00, 0x00, 0x00, 0x01,
       ],
       parsed: {
         messageType: 'S',
-        second: 1
+        second: 1,
       }
     },
     {
@@ -37,7 +37,7 @@ describe('PMD', function () {
         0x42,
         0x46, 0x4f, 0x4f, 0x20, 0x20, 0x20, 0x20, 0x20,
         0x00, 0x00, 0x00, 0x03,
-        0x00, 0x00, 0x00, 0x04
+        0x00, 0x00, 0x00, 0x04,
       ],
       parsed: {
         messageType: 'A',
@@ -46,7 +46,7 @@ describe('PMD', function () {
         side: 'B',
         instrument: 'FOO     ',
         quantity: 3,
-        price: 4
+        price: 4,
       }
     },
     {
@@ -56,14 +56,14 @@ describe('PMD', function () {
         0x00, 0x00, 0x00, 0x01,
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02,
         0x00, 0x00, 0x00, 0x03,
-        0x00, 0x00, 0x00, 0x04
+        0x00, 0x00, 0x00, 0x04,
       ],
       parsed: {
         messageType: 'E',
         timestamp: 1,
         orderNumber: new Long(2, 0, true),
         quantity: 3,
-        matchNumber: 4
+        matchNumber: 4,
       }
     },
     {
@@ -72,13 +72,13 @@ describe('PMD', function () {
         0x58,
         0x00, 0x00, 0x00, 0x01,
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02,
-        0x00, 0x00, 0x00, 0x03
+        0x00, 0x00, 0x00, 0x03,
       ],
       parsed: {
         messageType: 'X',
         timestamp: 1,
         orderNumber: new Long(2, 0, true),
-        canceledQuantity: 3
+        canceledQuantity: 3,
       }
     },
     {
@@ -86,12 +86,12 @@ describe('PMD', function () {
       formatted: [
         0x44,
         0x00, 0x00, 0x00, 0x01,
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02,
       ],
       parsed: {
         messageType: 'D',
         timestamp: 1,
-        orderNumber: new Long(2, 0, true)
+        orderNumber: new Long(2, 0, true),
       }
     },
     {
@@ -99,12 +99,12 @@ describe('PMD', function () {
       formatted: [
         0x42,
         0x00, 0x00, 0x00, 0x01,
-        0x00, 0x00, 0x00, 0x02
+        0x00, 0x00, 0x00, 0x02,
       ],
       parsed: {
         messageType: 'B',
         timestamp: 1,
-        matchNumber: 2
+        matchNumber: 2,
       }
     }
   ];
@@ -132,7 +132,7 @@ describe('PMD', function () {
         0x42,
         0x46, 0x4f, 0x4f, 0x20, 0x42, 0x41, 0x52, 0x20,
         0x00, 0x00, 0x00, 0x03,
-        0x00, 0x00, 0x00, 0x04
+        0x00, 0x00, 0x00, 0x04,
       ];
 
       const parsed = {
@@ -142,7 +142,7 @@ describe('PMD', function () {
         side: 'B',
         instrument: 'FOO BAR BAZ',
         quantity: 3,
-        price: 4
+        price: 4,
       }
 
       assert.deepEqual(PMD.format(parsed), Buffer.from(formatted));

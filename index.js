@@ -58,7 +58,7 @@ function formatVersion(message) {
 function parseVersion(buffer) {
   return {
     messageType: 'V',
-    version: buffer.readUInt32BE(1)
+    version: buffer.readUInt32BE(1),
   };
 }
 
@@ -74,7 +74,7 @@ function formatSeconds(message) {
 function parseSeconds(buffer) {
   return {
     messageType: 'S',
-    second: buffer.readUInt32BE(1)
+    second: buffer.readUInt32BE(1),
   };
 }
 
@@ -100,7 +100,7 @@ function parseOrderAdded(buffer) {
     side: readString(buffer, 13, 1),
     instrument: readString(buffer, 14, 8),
     quantity: buffer.readUInt32BE(22),
-    price: buffer.readUInt32BE(26)
+    price: buffer.readUInt32BE(26),
   };
 }
 
@@ -122,7 +122,7 @@ function parseOrderExecuted(buffer) {
     timestamp: buffer.readUInt32BE(1),
     orderNumber: readUInt64BE(buffer, 5),
     quantity: buffer.readUInt32BE(13),
-    matchNumber: buffer.readUInt32BE(17)
+    matchNumber: buffer.readUInt32BE(17),
   };
 }
 
@@ -142,7 +142,7 @@ function parseOrderCanceled(buffer) {
     messageType: 'X',
     timestamp: buffer.readUInt32BE(1),
     orderNumber: readUInt64BE(buffer, 5),
-    canceledQuantity: buffer.readUInt32BE(13)
+    canceledQuantity: buffer.readUInt32BE(13),
   };
 }
 
@@ -160,7 +160,7 @@ function parseOrderDeleted(buffer) {
   return {
     messageType: 'D',
     timestamp: buffer.readUInt32BE(1),
-    orderNumber: readUInt64BE(buffer, 5)
+    orderNumber: readUInt64BE(buffer, 5),
   };
 }
 
@@ -178,7 +178,7 @@ function parseBrokenTrade(buffer) {
   return {
     messageType: 'B',
     timestamp: buffer.readUInt32BE(1),
-    matchNumber: buffer.readUInt32BE(5)
+    matchNumber: buffer.readUInt32BE(5),
   };
 }
 
