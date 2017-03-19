@@ -180,7 +180,7 @@ describe('PMD', function () {
     });
 
     it('handles unknown message type', function () {
-      const buffer = Buffer.from([ 0x3F ]);
+      const buffer = Buffer.from([ 0x3f ]);
 
       assert.throws(() => { PMD.parse(buffer) }, /Unknown message type: 63/);
     });
