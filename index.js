@@ -195,7 +195,7 @@ function readUInt64BE(buffer, offset) {
 function writeString(buffer, value, offset, length) {
   const count = buffer.write(value, offset, length, 'ascii');
 
-  buffer.fill(0x20, count, length);
+  buffer.fill(0x20, offset + count, offset + length);
 }
 
 function readString(buffer, offset, length) {

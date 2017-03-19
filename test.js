@@ -123,6 +123,30 @@ describe('PMD', function () {
       assert.throws(() => { PMD.format(message) }, /Unknown message type: \?/);
     });
 
+    it('handles too short string', function () {
+      const formatted = [
+        0x41,
+        0x00, 0x00, 0x00, 0x01,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02,
+        0x42,
+        0x46, 0x4f, 0x4f, 0x20, 0x20, 0x20, 0x20, 0x20,
+        0x00, 0x00, 0x00, 0x03,
+        0x00, 0x00, 0x00, 0x04,
+      ];
+
+      const parsed = {
+        messageType: 'A',
+        timestamp: 1,
+        orderNumber: 2,
+        side: 'B',
+        instrument: 'FOO',
+        quantity: 3,
+        price: 4,
+      };
+
+      assert.deepEqual(PMD.format(parsed), Buffer.from(formatted));
+    });
+
     it('handles too long string', function () {
       const formatted = [
         0x41,
