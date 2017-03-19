@@ -120,7 +120,7 @@ describe('PMD', function () {
         messageType: '?'
       };
 
-      assert.throws(() => { PMD.format(message) }, /Unknown message type: \?/);
+      assert.throws(() => PMD.format(message), /Unknown message type: \?/);
     });
 
     it('handles too short string', function () {
@@ -182,7 +182,7 @@ describe('PMD', function () {
     it('handles unknown message type', function () {
       const buffer = Buffer.from([ 0x3f ]);
 
-      assert.throws(() => { PMD.parse(buffer) }, /Unknown message type: 63/);
+      assert.throws(() => PMD.parse(buffer), /Unknown message type: 63/);
     });
   });
 });
