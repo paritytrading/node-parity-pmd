@@ -4,7 +4,7 @@
   "description": "Parity's native market data protocol",
   "author": "Jussi Virtanen",
   "license": "Apache-2.0",
-  "repository": "jvirtanen/node-parity-pmd",
+  "repository": "paritytrading/node-parity-pmd",
   "scripts": {
     "test": "mocha"
   },
