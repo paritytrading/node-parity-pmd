@@ -12,6 +12,9 @@ const Side = {
   SELL: 'S'
 };
 
+exports.Side = Side;
+exports.MessageType = MessageType;
+
 exports.format = (message) => {
   switch (message.messageType) {
     case MessageType.VERSION:
