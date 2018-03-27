@@ -1,14 +1,29 @@
 'use strict';
 
+const MessageType = {
+  VERSION: 'V',
+  ORDER_ADDED: 'A',
+  ORDER_EXECUTED: 'E',
+  ORDER_CANCELED: 'X',
+};
+
+const Side = {
+  BUY: 'B',
+  SELL: 'S'
+};
+
+exports.Side = Side;
+exports.MessageType = MessageType;
+
 exports.format = (message) => {
   switch (message.messageType) {
-    case 'V':
+    case MessageType.VERSION:
       return formatVersion(message);
-    case 'A':
+    case MessageType.ORDER_ADDED:
       return formatOrderAdded(message);
-    case 'E':
+    case MessageType.ORDER_EXECUTED:
       return formatOrderExecuted(message);
-    case 'X':
+    case MessageType.ORDER_CANCELED:
       return formatOrderCanceled(message);
     default:
       throw new Error('Unknown message type: ' + message.messageType);
@@ -64,7 +79,7 @@ function formatOrderAdded(message) {
 
 function parseOrderAdded(buffer) {
   return {
-    messageType: 'A',
+    messageType: MessageType.ORDER_ADDED,
     timestamp: readUInt64BE(buffer, 1),
     orderNumber: readUInt64BE(buffer, 9),
     side: readString(buffer, 17, 1),
@@ -88,7 +103,7 @@ function formatOrderExecuted(message) {
 
 function parseOrderExecuted(buffer) {
   return {
-    messageType: 'E',
+    messageType: MessageType.ORDER_EXECUTED,
     timestamp: readUInt64BE(buffer, 1),
     orderNumber: readUInt64BE(buffer, 9),
     quantity: readUInt64BE(buffer, 17),
@@ -109,7 +124,7 @@ function formatOrderCanceled(message) {
 
 function parseOrderCanceled(buffer) {
   return {
-    messageType: 'X',
+    messageType: MessageType.ORDER_CANCELED,
     timestamp: readUInt64BE(buffer, 1),
     orderNumber: readUInt64BE(buffer, 9),
     canceledQuantity: readUInt64BE(buffer, 17),
