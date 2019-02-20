@@ -12,7 +12,7 @@ describe('PMD', function () {
         0x00, 0x00, 0x00, 0x01,
       ],
       parsed: {
-        messageType: 'V',
+        messageType: PMD.MessageType.VERSION,
         version: 1,
       },
     },
@@ -28,10 +28,10 @@ describe('PMD', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04,
       ],
       parsed: {
-        messageType: 'A',
+        messageType: PMD.MessageType.ORDER_ADDED,
         timestamp: 1,
         orderNumber: 4294967298,
-        side: 'B',
+        side: PMD.Side.BUY,
         instrument: 'FOO     ',
         quantity: 3,
         price: 4,
@@ -47,7 +47,7 @@ describe('PMD', function () {
         0x00, 0x00, 0x00, 0x04,
       ],
       parsed: {
-        messageType: 'E',
+        messageType: PMD.MessageType.ORDER_EXECUTED,
         timestamp: 1,
         orderNumber: 4294967298,
         quantity: 3,
@@ -63,7 +63,7 @@ describe('PMD', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03,
       ],
       parsed: {
-        messageType: 'X',
+        messageType: PMD.MessageType.ORDER_CANCELED,
         timestamp: 1,
         orderNumber: 4294967298,
         canceledQuantity: 3,
@@ -98,10 +98,10 @@ describe('PMD', function () {
       ];
 
       const parsed = {
-        messageType: 'A',
+        messageType: PMD.MessageType.ORDER_ADDED,
         timestamp: 1,
         orderNumber: 2,
-        side: 'B',
+        side: PMD.Side.BUY,
         instrument: 'FOO',
         quantity: 3,
         price: 4,
@@ -122,10 +122,10 @@ describe('PMD', function () {
       ];
 
       const parsed = {
-        messageType: 'A',
+        messageType: PMD.MessageType.ORDER_ADDED,
         timestamp: 1,
         orderNumber: 2,
-        side: 'B',
+        side: PMD.Side.BUY,
         instrument: 'FOO BAR BAZ',
         quantity: 3,
         price: 4,
