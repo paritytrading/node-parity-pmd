@@ -59,7 +59,7 @@ function formatVersion(message) {
 
 function parseVersion(buffer) {
   return {
-    messageType: 'V',
+    messageType: MessageType.VERSION,
     version: buffer.readUInt32BE(1),
   };
 }
