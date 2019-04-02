@@ -9,12 +9,10 @@ const MessageType = {
 
 exports.MessageType = MessageType;
 
-const Side = {
+exports.Side = {
   BUY: 'B',
   SELL: 'S',
 };
-
-exports.Side = Side;
 
 exports.format = (message) => {
   switch (message.messageType) {
