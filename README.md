@@ -4,7 +4,7 @@ Parity PMD implements [Parity][]'s native market data protocol on Node.
 
   [Parity]: https://github.com/paritytrading/parity
 
-Parity PMD requires Node 8 or newer and Parity 0.7.0 or newer.
+Parity PMD requires Node 10 or newer and Parity 0.7.0 or newer.
 
 ## Install
 
