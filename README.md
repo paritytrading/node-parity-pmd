@@ -1,3 +1,6 @@
+> :warning: This repository is **archived** and no further development
+> will take place.
+
 # Parity PMD
 
 Parity PMD implements [Parity][]'s native market data protocol on Node.
@@ -13,15 +16,6 @@ Install Parity PMD:
 ```
 npm install parity-pmd
 ```
-
-## Links
-
-For more information on Parity PMD:
-
-- Follow [@paritytrading](https://twitter.com/paritytrading) on Twitter for
-  news and announcements
-- Join [paritytrading/chat](https://gitter.im/paritytrading/chat) on Gitter
-  for discussions
 
 ## License
 
